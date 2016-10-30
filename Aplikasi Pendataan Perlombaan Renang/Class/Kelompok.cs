@@ -7,9 +7,10 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang.Class {
         public string KodeKelompok { get; set; }
         public string NamaKelompok { get; set; }
 
-        public Kelompok(string kode, string nama) {
-            KodeKelompok = kode;
-            NamaKelompok = nama;
+        public Kelompok(string kodeKelompok, string namaKelompok) {
+            KodeKelompok = kodeKelompok;
+            NamaKelompok = namaKelompok;
         }
+
     }
 }

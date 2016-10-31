@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 using Aplikasi_Pendataan_Perlombaan_Renang.Class;
 
 namespace Aplikasi_Pendataan_Perlombaan_Renang {
@@ -17,17 +18,45 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
     /// </summary>
     public partial class BuatLomba : Window {
         List<Kelompok> kelompok = new List<Kelompok>();
+        byte[] tanggal = new byte[31] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
+        KeyValuePair<byte, string>[] bulan = new KeyValuePair<byte, string>[12] {
+            new KeyValuePair<byte,string>(1,"Januari"),
+            new KeyValuePair<byte,string>(2,"Februari"),
+            new KeyValuePair<byte,string>(3,"Maret"),
+            new KeyValuePair<byte,string>(4,"April"),
+            new KeyValuePair<byte,string>(5,"Mei"),
+            new KeyValuePair<byte,string>(6,"Juni"),
+            new KeyValuePair<byte,string>(7,"Juli"),
+            new KeyValuePair<byte,string>(8,"Agustus"),
+            new KeyValuePair<byte,string>(9,"September"),
+            new KeyValuePair<byte,string>(10,"Oktober"),
+            new KeyValuePair<byte,string>(11,"November"),
+            new KeyValuePair<byte,string>(12,"Desember")
+        };
+        Int16 tahunSekarang = Int16.Parse(DateTime.Now.ToString("yyyy"));
 
         public BuatLomba() {
             InitializeComponent();
-            Kelompok a = new Kelompok("A", "Cek Nama");
-            kelompok.Add(a);
+            kodeKelompok.GotFocus += kodeKelompokFocus;
+            namaKelompok.GotFocus += namaKelompokFocus;
             listKelompok.ItemsSource = kelompok;
+            tanggalLomba.ItemsSource = tanggal;
+            tanggalLomba.SelectedIndex = 0;
+            bulanLomba.SelectedValuePath = "Key";
+            bulanLomba.DisplayMemberPath = "Value";
+            bulanLomba.ItemsSource = bulan;
+            bulanLomba.SelectedIndex = 0;
+            for (int i = 0; i < 10; i++) {
+                tahunLomba.Items.Add(tahunSekarang+i);
+            }
+            tahunLomba.SelectedIndex = 0;
         }
 
         private void tambahKelompok(object sender, RoutedEventArgs e) {
             Kelompok newKelompok = new Kelompok(this.kodeKelompok.Text, this.namaKelompok.Text);
             kelompok.Add(newKelompok);
+            kodeKelompok.Text = "";
+            namaKelompok.Text = "";
             listKelompok.Items.Refresh();
         }
 
@@ -46,6 +75,42 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
             this.Close();
+        }
+
+        private void kodeKelompokFocus(object sender, RoutedEventArgs e) {
+            if (String.Equals(kodeKelompok.Text, "Kode Kelompok")) {
+                kodeKelompok.Text = "";
+            }
+        }
+
+        public void namaKelompokFocus(object sender, RoutedEventArgs e) {
+            if (String.Equals(namaKelompok.Text, "Nama Kelompok")) {
+                namaKelompok.Text = "";
+            }
+        }
+
+        private void buatPerlombaan(object sender, RoutedEventArgs e) {
+            MySqlConnection connection = new MySqlConnection("server=127.0.0.1;uid=root;database=perlombaan_renang;");
+            string query = "SELECT count(tanggal_perlombaan) AS jumlah FROM `perlombaan` WHERE tanggal_perlombaan = '2016-01-01'";
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+
+            //making key for lomba
+            string key = tanggalLomba.Text.PadLeft(2,'0')
+                + bulanLomba.SelectedValue.ToString().PadLeft(2, '0')
+                + tahunLomba.Text;
+            Int64 keyLastPieceInt = (Int64)command.ExecuteScalar()+1;
+            string keyLastPiece = keyLastPieceInt.ToString("D4");
+            key = key + keyLastPiece;
+            MessageBox.Show(key);
+            //end making key
+            
+            string combinedDate = tahunLomba.Text + "-" + bulanLomba.SelectedValue + "-" + tanggalLomba.Text;
+
+            query = "insert into perlombaan(nama_perlombaan,tanggal_perlombaan) values('" + namaPerlombaan.Text + "','" + combinedDate + "')";
+            command.CommandText = query;
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

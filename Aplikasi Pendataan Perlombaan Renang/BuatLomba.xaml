@@ -32,19 +32,13 @@
             <Label Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="0" Content="Nama Perlombaan"/>
             <Label Grid.Row="1" VerticalContentAlignment="Center" Grid.Column="0" Content="Tanggal Perlombaan"/>
             <Label Grid.Row="2" VerticalContentAlignment="Top" Grid.Column="0" Content="Kelompok"/>
-            <TextBox Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
+            <TextBox Name="namaPerlombaan"  Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <ComboBox VerticalAlignment="Center" Width="50" Margin="0,0,3,0">
-                    <ComboBoxItem Content="test"/>
-                    <ComboBoxItem Content="test2"/>
+                <ComboBox Name="tanggalLomba" VerticalAlignment="Center" Width="50" Margin="0,0,3,0">
                 </ComboBox>
-                <ComboBox VerticalAlignment="Center" Width="120" Margin="0,0,3,0">
-                    <ComboBoxItem Content="test"/>
-                    <ComboBoxItem Content="test2"/>
+                <ComboBox Name="bulanLomba" VerticalAlignment="Center" Width="120" Margin="0,0,3,0">
                 </ComboBox>
-                <ComboBox VerticalAlignment="Center" Width="90">
-                    <ComboBoxItem Content="test"/>
-                    <ComboBoxItem Content="test2"/>
+                <ComboBox Name="tahunLomba" VerticalAlignment="Center" Width="90">
                 </ComboBox>
             </StackPanel>
             <Grid Grid.Row="2" Grid.Column="1">
@@ -86,7 +80,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"  Height="40" Margin="10,0,0,10" Width="160" HorizontalAlignment="Left" Click="kembaliKeMainMenu">Kembali Ke Menu Utama</Button>
-            <Button Grid.Column="1" Height="40" Margin="0,0,10,10" Width="110" HorizontalAlignment="Right">Buat Perlombaan</Button>
+            <Button Grid.Column="1" Height="40" Margin="0,0,10,10" Width="110" HorizontalAlignment="Right" Click="buatPerlombaan">Buat Perlombaan</Button>
         </Grid>
     </Grid>
 </Window>

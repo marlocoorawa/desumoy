@@ -13,3 +13,4 @@ C:\Users\Marlo\documents\visual studio 2013\Projects\Aplikasi Pendataan Perlomba
 C:\Users\Marlo\documents\visual studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\Aplikasi Pendataan Perlombaan Renang.exe
 C:\Users\Marlo\documents\visual studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\Aplikasi Pendataan Perlombaan Renang.pdb
 C:\Users\Marlo\documents\visual studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\Aplikasi Pendataan Perlombaan Renang.csprojResolveAssemblyReference.cache
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\bin\Debug\Aplikasi Pendataan Perlombaan Renang.exe.config

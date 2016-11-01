@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using Aplikasi_Pendataan_Perlombaan_Renang.Class;
+using System.Data;
 
 namespace Aplikasi_Pendataan_Perlombaan_Renang {
     /// <summary>
@@ -96,9 +97,10 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
 
         private void buatPerlombaan(object sender, RoutedEventArgs e) {
             MySqlConnection connection = new MySqlConnection("server=127.0.0.1;uid=root;database=perlombaan_renang;");
-            string query = "SELECT count(tanggal_perlombaan) AS jumlah FROM `perlombaan` WHERE tanggal_perlombaan = '2016-01-01'";
-            MySqlCommand command = new MySqlCommand(query, connection);
             connection.Open();
+            string combinedDate = tahunLomba.Text + "-" + bulanLomba.SelectedValue + "-" + tanggalLomba.Text;
+            string query = "SELECT count(tanggal_perlombaan) AS jumlah FROM `perlombaan` WHERE tanggal_perlombaan = '"+combinedDate+"'";
+            MySqlCommand command = new MySqlCommand(query, connection);
 
             //making key for lomba
             string kodePerlombaan = tanggalLomba.Text.PadLeft(2,'0')
@@ -108,8 +110,6 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             string keyLastPiece = keyLastPieceInt.ToString("D4");
             kodePerlombaan = kodePerlombaan + keyLastPiece;
             //end making key
-            
-            string combinedDate = tahunLomba.Text + "-" + bulanLomba.SelectedValue + "-" + tanggalLomba.Text;
 
             query = "insert into perlombaan(kode_perlombaan,nama_perlombaan,tanggal_perlombaan) values('"+ kodePerlombaan+ "','" + namaPerlombaan.Text + "','" + combinedDate + "')";
             command.CommandText = query;
@@ -121,6 +121,7 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
                 command.ExecuteNonQuery();
             }
             MessageBox.Show("Lomba berhasil di simpan di database!");
+            connection.Close();
             kembaliKeMainMenu();
         }
     }

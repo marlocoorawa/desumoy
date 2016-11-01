@@ -1,0 +1,36 @@
+﻿<Window x:Class="Aplikasi_Pendataan_Perlombaan_Renang.PendaftaranPeserta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{StaticResource withStyle}"
+        Title="PendaftaranPeserta" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource palleteBlue1}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Style="{StaticResource headerStyle}">
+            Pendaftaran Peserta
+        </TextBlock>
+        <Grid Grid.Row="1" Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="0" Content="Pilih Perlombaan"/>
+            <ComboBox Grid.Row="0" Grid.Column="1" Name="daftarLomba"/>
+        </Grid>
+    </Grid>
+</Window>

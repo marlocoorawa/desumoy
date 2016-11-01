@@ -29,5 +29,11 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
         private void exit(object sender, RoutedEventArgs e) {
             Application.Current.Shutdown();
         }
+
+        private void pendaftaranPeserta(object sender, RoutedEventArgs e) {
+            PendaftaranPeserta pendaftaranPesertaWindow = new PendaftaranPeserta();
+            pendaftaranPesertaWindow.Show();
+            this.Close();
+        }
     }
 }

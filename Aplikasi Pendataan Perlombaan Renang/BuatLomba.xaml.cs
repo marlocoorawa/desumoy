@@ -71,11 +71,16 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             listKelompok.Items.Refresh();
         }
 
-        private void kembaliKeMainMenu(object sender, RoutedEventArgs e) {
+        private void kembaliKeMainMenuClick(object sender, RoutedEventArgs e) {
+            kembaliKeMainMenu();
+        }
+
+        private void kembaliKeMainMenu() {
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
             this.Close();
         }
+
 
         private void kodeKelompokFocus(object sender, RoutedEventArgs e) {
             if (String.Equals(kodeKelompok.Text, "Kode Kelompok")) {
@@ -96,21 +101,27 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             connection.Open();
 
             //making key for lomba
-            string key = tanggalLomba.Text.PadLeft(2,'0')
+            string kodePerlombaan = tanggalLomba.Text.PadLeft(2,'0')
                 + bulanLomba.SelectedValue.ToString().PadLeft(2, '0')
                 + tahunLomba.Text;
             Int64 keyLastPieceInt = (Int64)command.ExecuteScalar()+1;
             string keyLastPiece = keyLastPieceInt.ToString("D4");
-            key = key + keyLastPiece;
-            MessageBox.Show(key);
+            kodePerlombaan = kodePerlombaan + keyLastPiece;
             //end making key
             
             string combinedDate = tahunLomba.Text + "-" + bulanLomba.SelectedValue + "-" + tanggalLomba.Text;
 
-            query = "insert into perlombaan(nama_perlombaan,tanggal_perlombaan) values('" + namaPerlombaan.Text + "','" + combinedDate + "')";
+            query = "insert into perlombaan(kode_perlombaan,nama_perlombaan,tanggal_perlombaan) values('"+ kodePerlombaan+ "','" + namaPerlombaan.Text + "','" + combinedDate + "')";
             command.CommandText = query;
             command.ExecuteNonQuery();
-            connection.Close();
+            for (int i = 0; i < listKelompok.Items.Count; i++) {
+                Kelompok kelompokForQuery = (Kelompok)listKelompok.Items.GetItemAt(i);
+                query = "insert into kelompok(kode_kelompok, kode_perlombaan, nama_kelompok) values('" + kelompokForQuery.KodeKelompok + "','" + kodePerlombaan +"','" + kelompokForQuery.NamaKelompok + "')";
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+            }
+            MessageBox.Show("Lomba berhasil di simpan di database!");
+            kembaliKeMainMenu();
         }
     }
 }

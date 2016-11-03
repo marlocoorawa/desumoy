@@ -107,7 +107,7 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
                 + bulanLomba.SelectedValue.ToString().PadLeft(2, '0')
                 + tahunLomba.Text;
             Int64 keyLastPieceInt = (Int64)command.ExecuteScalar()+1;
-            string keyLastPiece = keyLastPieceInt.ToString("D4");
+            string keyLastPiece = keyLastPieceInt.ToString("D2");
             kodePerlombaan = kodePerlombaan + keyLastPiece;
             //end making key
 

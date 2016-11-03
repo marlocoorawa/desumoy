@@ -22,16 +22,31 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             List<string> listPerlombaan = new List<string>();
             InitializeComponent();
             MySqlConnection connection = new MySqlConnection("server=127.0.0.1;uid=root;database=perlombaan_renang;");
-            connection.Open();
-            string query = "SELECT kode_perlombaan,nama_perlombaan FROM `perlombaan`";
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader = command.ExecuteReader();
-            while (reader.Read()) {
-                listPerlombaan.Add(reader.GetString(1));
+            try {
+                connection.Open();
+                string query = "SELECT kode_perlombaan,nama_perlombaan FROM `perlombaan`";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read()) {
+                    listPerlombaan.Add(reader.GetString(1));
+                }
+                reader.Close();
+                daftarLomba.ItemsSource = listPerlombaan;
+                connection.Close();
+            } catch (Exception e) {
+                MessageBox.Show(e.Message + "\nTidak Terkoneksi Ke Database!");
             }
-            reader.Close();
-            daftarLomba.ItemsSource = listPerlombaan;
-            connection.Close();
         }
+
+        private void kembaliKeMainMenuClick(object sender, RoutedEventArgs e) {
+            kembaliKeMainMenu();
+        }
+
+        private void kembaliKeMainMenu() {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+            this.Close();
+        }
+
     }
 }

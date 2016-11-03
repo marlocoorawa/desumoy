@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0">
             <Rectangle.Fill>
@@ -26,11 +27,136 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="0" Content="Pilih Perlombaan"/>
             <ComboBox Grid.Row="0" Grid.Column="1" Name="daftarLomba"/>
+            <TabControl Margin="0,15,0,0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" BorderBrush="Transparent">
+                <TabItem>
+                    <TabItem.Header>
+                        <Label FontWeight="Bold">Data Sekolah</Label>
+                    </TabItem.Header>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
+                        <Label VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="0" Foreground="Black">Nama Sekolah</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Foreground="Black">Alamat</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" Foreground="Black">No. Contact</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0" Foreground="Black">Email</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="0" Foreground="Black">Nama Pendaftar</Label>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="0" Grid.Column="1"></TextBox>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="1" Grid.Column="1"></TextBox>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="2" Grid.Column="1"></TextBox>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="3" Grid.Column="1"></TextBox>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="4" Grid.Column="1"></TextBox>
+                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="5" Grid.Column="1"></TextBox>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Label FontWeight="Bold">Data Peserta</Label>
+                    </TabItem.Header>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="271*"/>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="161*"/>
+                            <ColumnDefinition Width="161*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="0" Foreground="Black">Nama Peserta</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Foreground="Black">Tanggal Lahir</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" Foreground="Black">Kelompok</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0" Foreground="Black">Jenis Kelamin</Label>
+                        <Button Grid.Row="4" Grid.Column="0" Margin="5">Simpan</Button>
+                        <TextBox Grid.Row="0" Grid.Column="1"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <ComboBox Name="tanggalLomba" VerticalAlignment="Center" Width="50" Margin="0,0,3,0"/>
+                            <ComboBox Name="bulanLomba" VerticalAlignment="Center" Width="120" Margin="0,0,3,0"/>
+                            <ComboBox Name="tahunLomba" VerticalAlignment="Center" Width="90"/>
+                        </StackPanel>
+                        <ComboBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="28" Text="Kelompok" Height="22" Margin="0,4">
+                        </ComboBox>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <RadioButton Margin="5,0,0,0" VerticalAlignment="Center"></RadioButton>
+                            <Label VerticalContentAlignment="Center" Foreground="Black">Laki - Laki</Label>
+                            <RadioButton Margin="5,0,0,0" VerticalAlignment="Center"></RadioButton>
+                            <Label VerticalContentAlignment="Center" Foreground="Black">Perempuan</Label>
+                        </StackPanel>
+                        <Label VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="2" Foreground="Black">Bebas</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="2" Foreground="Black">Dada</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="2" Foreground="Black">Kupu - Kupu</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="2" Foreground="Black">Punggung</Label>
+                        <Label VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="2" Foreground="Black">Estafet</Label>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3" Margin="3">
+                            <Label Width="50" Foreground="Black">25m</Label><TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="4" Margin="3">
+                            <Label Foreground="Black">50m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3" Margin="3">
+                            <Label Width="50" Foreground="Black">25m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="4" Margin="3">
+                            <Label Foreground="Black">50m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Margin="3">
+                            <Label Width="50" Foreground="Black">50m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" Margin="3">
+                            <Label Width="50" Foreground="Black">50m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" Margin="3">
+                            <Label Width="50" Foreground="Black">4x25m</Label>
+                            <TextBox Width="100"/>
+                        </StackPanel>
+                        <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Margin="5">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Nama Peserta" Width="Auto"></GridViewColumn>
+                                    <GridViewColumn Header="Tanggal Lahir" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Kelompok" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Kupu - kupu 50m" Width="110"></GridViewColumn>
+                                    <GridViewColumn Header="Punggung 50m" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Dada 20m" Width="80"></GridViewColumn>
+                                    <GridViewColumn Header="Bebas" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Estafet" Width="100"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"  Height="40" Margin="10,0,0,10" Width="160" HorizontalAlignment="Left" Click="kembaliKeMainMenuClick">Kembali Ke Menu Utama</Button>
+            <Button Grid.Column="1" Height="40" Margin="0,0,10,10" Width="130" HorizontalAlignment="Right">Simpan Ke Database</Button>
         </Grid>
     </Grid>
 </Window>

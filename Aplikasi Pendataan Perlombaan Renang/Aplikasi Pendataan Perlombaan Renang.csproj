@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="KelolaPerlombaan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +73,11 @@
     </Compile>
     <Compile Include="Class\Kelompok.cs" />
     <Compile Include="Class\Perlombaan.cs" />
+    <Compile Include="Class\Peserta.cs" />
+    <Compile Include="Class\Sekolah.cs" />
+    <Compile Include="KelolaPerlombaan.xaml.cs">
+      <DependentUpon>KelolaPerlombaan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
       <SubType>Code</SubType>

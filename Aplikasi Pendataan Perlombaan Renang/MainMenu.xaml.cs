@@ -35,5 +35,11 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             pendaftaranPesertaWindow.Show();
             this.Close();
         }
+
+        private void kelolaPerlombaan(object sender, RoutedEventArgs e) {
+            KelolaPerlombaan kelolaPerlombaanWindow = new KelolaPerlombaan();
+            kelolaPerlombaanWindow.Show();
+            this.Close();
+        }
     }
 }

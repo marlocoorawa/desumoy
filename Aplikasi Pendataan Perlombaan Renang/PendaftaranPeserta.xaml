@@ -84,8 +84,12 @@
                         <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="0" Foreground="Black">Tanggal Lahir</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" Foreground="Black">Kelompok</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0" Foreground="Black">Jenis Kelamin</Label>
-                        <Button Grid.Row="4" Grid.Column="0" Margin="5">Simpan</Button>
-                        <TextBox Grid.Row="0" Grid.Column="1"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Button Margin="5" Click="simpanPesertaClick" Width="60">Simpan</Button>
+                            <Button Margin="5" Width="130" Click="hapusPesertaDipilih">Hapus Peserta Dipilih</Button>
+                            <Button Margin="5" Width="130" Click="hapusSemuaPesertaClick">Hapus Semua Peserta</Button>
+                        </StackPanel>
+                        <TextBox Name="namaPeserta" Grid.Row="0" Grid.Column="1"/>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                             <ComboBox Name="tanggalLahir" VerticalAlignment="Center" Width="50" Margin="0,0,3,0"/>
                             <ComboBox Name="bulanLahir" VerticalAlignment="Center" Width="120" Margin="0,0,3,0"/>
@@ -102,43 +106,66 @@
                         <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="2" Foreground="Black">Punggung</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="2" Foreground="Black">Estafet</Label>
                         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="3" Margin="3">
-                            <Label Width="50" Foreground="Black">25m</Label><TextBox Width="100"/>
+                            <Label Width="50" Foreground="Black">25m</Label>
+                            <TextBox Name="bebas25m" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="4" Margin="3">
                             <Label Foreground="Black">50m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="bebas50m" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="3" Margin="3">
                             <Label Width="50" Foreground="Black">25m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="dada25m" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="4" Margin="3">
                             <Label Foreground="Black">50m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="dada50m" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Margin="3">
                             <Label Width="50" Foreground="Black">50m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="kupuKupu" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" Margin="3">
                             <Label Width="50" Foreground="Black">50m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="punggung" Width="100"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" Margin="3">
                             <Label Width="50" Foreground="Black">4x25m</Label>
-                            <TextBox Width="100"/>
+                            <TextBox Name="estafet" Width="100"/>
                         </StackPanel>
-                        <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Margin="5">
+                        <ListView Name="listViewPeserta" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" Margin="5">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Nama Peserta" Width="Auto"></GridViewColumn>
-                                    <GridViewColumn Header="Tanggal Lahir" Width="100"></GridViewColumn>
-                                    <GridViewColumn Header="Kelompok" Width="100"></GridViewColumn>
-                                    <GridViewColumn Header="Kupu - kupu 50m" Width="110"></GridViewColumn>
-                                    <GridViewColumn Header="Punggung 50m" Width="100"></GridViewColumn>
-                                    <GridViewColumn Header="Dada 20m" Width="80"></GridViewColumn>
-                                    <GridViewColumn Header="Bebas" Width="100"></GridViewColumn>
-                                    <GridViewColumn Header="Estafet" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Nama Peserta" DisplayMemberBinding="{Binding NamaPeserta}" Width="Auto"></GridViewColumn>
+                                    <GridViewColumn Header="Jenis Kelamin" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <Label>
+                                                        <Label.Style>
+                                                            <Style TargetType="{x:Type Label}">
+                                                                <Setter Property="Content" Value="Perempuan"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding JenisKelamin}" Value="True">
+                                                                        <Setter Property="Content" Value="Laki - Laki"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Label.Style>
+                                                    </Label>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Tanggal Lahir" DisplayMemberBinding="{Binding TanggalLahirString}" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Kelompok" DisplayMemberBinding="{Binding Kelompok.NamaKelompok}" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Bebas 25m" DisplayMemberBinding="{Binding Bebas25m}" Width="80"></GridViewColumn>
+                                    <GridViewColumn Header="Bebas 50m" DisplayMemberBinding="{Binding Bebas50m}" Width="80"></GridViewColumn>
+                                    <GridViewColumn Header="Dada 25m" DisplayMemberBinding="{Binding Dada25m}" Width="80"></GridViewColumn>
+                                    <GridViewColumn Header="Dada 50m" DisplayMemberBinding="{Binding Dada50m}" Width="80"></GridViewColumn>
+                                    <GridViewColumn Header="Kupu - kupu 50m" DisplayMemberBinding="{Binding KupuKupu}" Width="110"></GridViewColumn>
+                                    <GridViewColumn Header="Punggung 50m" DisplayMemberBinding="{Binding Punggung}" Width="100"></GridViewColumn>
+                                    <GridViewColumn Header="Estafet 4x25m" DisplayMemberBinding="{Binding Estafet}" Width="100"></GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>

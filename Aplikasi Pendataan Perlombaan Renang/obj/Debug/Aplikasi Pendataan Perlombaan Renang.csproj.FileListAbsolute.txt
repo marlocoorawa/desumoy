@@ -16,3 +16,5 @@ C:\Users\Marlo\documents\visual studio 2013\Projects\Aplikasi Pendataan Perlomba
 C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\bin\Debug\Aplikasi Pendataan Perlombaan Renang.exe.config
 C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\PendaftaranPeserta.baml
 C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\PendaftaranPeserta.g.cs
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\KelolaPerlombaan.baml
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang\obj\Debug\KelolaPerlombaan.g.cs

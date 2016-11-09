@@ -68,6 +68,7 @@
       <DependentUpon>BuatLomba.xaml</DependentUpon>
     </Compile>
     <Compile Include="Class\Kelompok.cs" />
+    <Compile Include="Class\Perlombaan.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
       <SubType>Code</SubType>

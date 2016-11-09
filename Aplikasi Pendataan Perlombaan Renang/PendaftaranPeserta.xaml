@@ -30,7 +30,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" VerticalContentAlignment="Center" Grid.Column="0" Content="Pilih Perlombaan"/>
-            <ComboBox Grid.Row="0" Grid.Column="1" Name="daftarLomba"/>
+            <ComboBox Grid.Row="0" Grid.Column="1" Name="listPerlombaanCB" DropDownClosed="listPerlombaanClosed"/>
             <TabControl Margin="0,15,0,0" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" BorderBrush="Transparent">
                 <TabItem>
                     <TabItem.Header>
@@ -53,12 +53,11 @@
                         <Label VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="0" Foreground="Black">No. Contact</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="0" Foreground="Black">Email</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="4" Grid.Column="0" Foreground="Black">Nama Pendaftar</Label>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="0" Grid.Column="1"></TextBox>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="1" Grid.Column="1"></TextBox>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="2" Grid.Column="1"></TextBox>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="3" Grid.Column="1"></TextBox>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="4" Grid.Column="1"></TextBox>
-                        <TextBox VerticalContentAlignment="Center" Height="30" Grid.Row="5" Grid.Column="1"></TextBox>
+                        <TextBox Name="namaSekolah" VerticalContentAlignment="Center" Height="30" Grid.Row="0" Grid.Column="1"></TextBox>
+                        <TextBox Name="alamatSekolah" VerticalContentAlignment="Center" Height="30" Grid.Row="1" Grid.Column="1"></TextBox>
+                        <TextBox Name="noContact" VerticalContentAlignment="Center" Height="30" Grid.Row="2" Grid.Column="1"></TextBox>
+                        <TextBox Name="emailSekolah" VerticalContentAlignment="Center" Height="30" Grid.Row="3" Grid.Column="1"></TextBox>
+                        <TextBox Name="namaPendaftar" VerticalContentAlignment="Center" Height="30" Grid.Row="4" Grid.Column="1"></TextBox>
                     </Grid>
                 </TabItem>
                 <TabItem>
@@ -88,17 +87,14 @@
                         <Button Grid.Row="4" Grid.Column="0" Margin="5">Simpan</Button>
                         <TextBox Grid.Row="0" Grid.Column="1"/>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                            <ComboBox Name="tanggalLomba" VerticalAlignment="Center" Width="50" Margin="0,0,3,0"/>
-                            <ComboBox Name="bulanLomba" VerticalAlignment="Center" Width="120" Margin="0,0,3,0"/>
-                            <ComboBox Name="tahunLomba" VerticalAlignment="Center" Width="90"/>
+                            <ComboBox Name="tanggalLahir" VerticalAlignment="Center" Width="50" Margin="0,0,3,0"/>
+                            <ComboBox Name="bulanLahir" VerticalAlignment="Center" Width="120" Margin="0,0,3,0"/>
+                            <ComboBox Name="tahunLahir" VerticalAlignment="Center" Width="90"/>
                         </StackPanel>
-                        <ComboBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="28" Text="Kelompok" Height="22" Margin="0,4">
-                        </ComboBox>
+                        <ComboBox Name="listKelompokCB" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Text="Kelompok" Height="22" Margin="0,4" DropDownOpened="listKelompokOpened"/>
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                            <RadioButton Margin="5,0,0,0" VerticalAlignment="Center"></RadioButton>
-                            <Label VerticalContentAlignment="Center" Foreground="Black">Laki - Laki</Label>
-                            <RadioButton Margin="5,0,0,0" VerticalAlignment="Center"></RadioButton>
-                            <Label VerticalContentAlignment="Center" Foreground="Black">Perempuan</Label>
+                            <RadioButton x:Name="lakiLaki" GroupName="jenisKelamin" Margin="5,0,0,0" VerticalAlignment="Center" Content="Laki - Laki"></RadioButton>
+                            <RadioButton x:Name="perempuan" GroupName="jenisKelamin" Margin="5,0,0,0" VerticalAlignment="Center" Content="Perempuan"></RadioButton>
                         </StackPanel>
                         <Label VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="2" Foreground="Black">Bebas</Label>
                         <Label VerticalContentAlignment="Center" Grid.Row="1" Grid.Column="2" Foreground="Black">Dada</Label>
@@ -156,7 +152,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"  Height="40" Margin="10,0,0,10" Width="160" HorizontalAlignment="Left" Click="kembaliKeMainMenuClick">Kembali Ke Menu Utama</Button>
-            <Button Grid.Column="1" Height="40" Margin="0,0,10,10" Width="130" HorizontalAlignment="Right">Simpan Ke Database</Button>
+            <Button Grid.Column="1" Height="40" Margin="0,0,10,10" Width="130" HorizontalAlignment="Right" Click="simpanKeDatabaseClick">Simpan Ke Database</Button>
         </Grid>
     </Grid>
 </Window>

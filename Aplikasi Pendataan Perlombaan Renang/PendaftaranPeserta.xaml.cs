@@ -90,7 +90,6 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
             try {
                 connection.Open();
                 string query = "SELECT count(kode_sekolah) as jumlah FROM `sekolah` where kode_perlombaan = '" + listPerlombaanCB.SelectedValue.ToString() +"'";
-                MessageBox.Show(query);
                 MySqlCommand command = new MySqlCommand(query, connection);
                 Int64 toBeKodeSekolah = (Int64)command.ExecuteScalar()+1;
                 string kodeSekolah = toBeKodeSekolah.ToString("D3");
@@ -120,7 +119,7 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
                 }
                 MessageBox.Show("Lomba berhasil di simpan di database!");
                 connection.Close();
-                //kembaliKeMainMenu();
+                kembaliKeMainMenu();
             } catch (Exception excep) {
                 MessageBox.Show(excep.Message);
             }

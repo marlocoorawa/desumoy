@@ -1,0 +1,53 @@
+﻿<Window x:Class="Aplikasi_Pendataan_Perlombaan_Renang.KelolaHasilLomba"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{StaticResource withStyle}"
+        Title="Lihat Hasil Lomba">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource palleteBlue1}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Style="{StaticResource headerStyle}">
+            Kelola Hasil Lomba
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,10,0,0">
+            <Label Width="80">Perlombaan</Label>
+            <ComboBox Name="listPerlombaanCB" Width="400" DropDownClosed="listPerlombaanClosed"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10,10,0,0">
+            <Label Width="80">Kode Acara</Label>
+            <ComboBox Name="listAcaraCB" Width="400" DropDownClosed="listAcaraClosed"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10,6,10,0">
+            <Label FontSize="14" FontWeight="Bold">Nama Perlombaan</Label>
+            <Label FontSize="14" FontWeight="Bold">-</Label>
+            <Label FontSize="14" FontWeight="Bold">Gaya Renang</Label>
+        </StackPanel>
+        <ListView Name="listViewHasilLomba" Grid.Row="4" Grid.Column="1" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nama Peserta" DisplayMemberBinding="{Binding NamaPeserta}" Width="220"></GridViewColumn>
+                    <GridViewColumn Header="Nama Sekolah" DisplayMemberBinding="{Binding NamaSekolah}" Width="220"></GridViewColumn>
+                    <GridViewColumn Header="Waktu Daftar" DisplayMemberBinding="{Binding WaktuDaftar}" Width="110"></GridViewColumn>
+                    <GridViewColumn Header="Waktu Lomba" DisplayMemberBinding="{Binding WaktuLomba}" Width="110"></GridViewColumn>
+                    <!--<GridViewColumn Header="Poin" DisplayMemberBinding="{Binding NamaPendaftar}" Width="60"></GridViewColumn>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="5" HorizontalAlignment="Left" Width="150" Height="25" Margin="15,0,0,10">Kembali Ke Menu Utama</Button>
+        <!--<Button Grid.Row="4" HorizontalAlignment="Right" Width="80" Height="25" Margin="0,0,15,10" Click="buatAcara">Buat Acara</Button>-->
+    </Grid>
+</Window>

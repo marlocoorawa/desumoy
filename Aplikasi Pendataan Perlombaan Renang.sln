@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplikasi Pendataan Perlombaan Renang", "Aplikasi Pendataan Perlombaan Renang\Aplikasi Pendataan Perlombaan Renang.csproj", "{655A2DBA-1E4F-4D7B-8A00-0D1DFE915FD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aplikasi Client Perlombaan Renang", "Aplikasi Client Perlombaan Renang\Aplikasi Client Perlombaan Renang.csproj", "{8CCE63C9-8A44-4B37-A779-1423A4471BC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{655A2DBA-1E4F-4D7B-8A00-0D1DFE915FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{655A2DBA-1E4F-4D7B-8A00-0D1DFE915FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{655A2DBA-1E4F-4D7B-8A00-0D1DFE915FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CCE63C9-8A44-4B37-A779-1423A4471BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCE63C9-8A44-4B37-A779-1423A4471BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCE63C9-8A44-4B37-A779-1423A4471BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCE63C9-8A44-4B37-A779-1423A4471BC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

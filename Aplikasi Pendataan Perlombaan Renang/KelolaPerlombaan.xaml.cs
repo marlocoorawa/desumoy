@@ -124,7 +124,7 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
                     foreach (string gayaRenang in listGayaRenang) {
                         jenisKelamin = true;
                         for(int i = 0; i<2 ;i++){
-                            query = "SELECT kode_sekolah, kode_peserta, "+gayaRenang+" from peserta where kode_perlombaan = '" + listPerlombaanCB.SelectedValue.ToString() + "' and "+gayaRenang+" != 0 and jenis_kelamin = " + jenisKelamin + " order by "+gayaRenang+" ASC";
+                            query = "SELECT kode_sekolah, kode_peserta, "+gayaRenang+" from peserta where kode_perlombaan = '" + listPerlombaanCB.SelectedValue.ToString() + "' and "+gayaRenang+" != 0 and jenis_kelamin = " + jenisKelamin + " and kode_kelompok = '"+kodeKelompok+"' order by "+gayaRenang+" ASC";
                             command.CommandText = query;
                             reader = command.ExecuteReader();
                             while (reader.Read()) {
@@ -140,33 +140,28 @@ namespace Aplikasi_Pendataan_Perlombaan_Renang {
                             //DO SOME PARSE ABOUT FRIGGIN SERI HERE
                             if (listPeserta.Count != 0) {
                                 foreach (Peserta peserta in listPeserta) {
-                                    query = "INSERT INTO `hasil_lomba`(`kode_perlombaan`, `kode_sekolah`, `kode_peserta`, `kode_acara`, `gaya_renang`, `seri`, `waktu`) VALUES ('"
+                                    query = "INSERT INTO `hasil_lomba`(`kode_perlombaan`, `kode_sekolah`, `kode_peserta`, `kode_acara`, `gaya_renang`, `seri`, `waktu_daftar`, `waktu_lomba`) VALUES ('"
                                         + listPerlombaanCB.SelectedValue.ToString() + "','"
                                         + peserta.KodeSekolah + "','"
                                         + peserta.KodePeserta + "','"
                                         + kodeAcara.ToString("D3") + "','"
                                         + gayaRenang + "',"
                                         + "0,'"
-                                        + peserta.Bebas25m + "')";
+                                        + peserta.Bebas25m 
+                                        + "','23:59:59.999')";
                                     command.CommandText = query;
                                     command.ExecuteNonQuery();
                                 }
                                 kodeAcara++;
                                 listPeserta.Clear();
                             }
-                                jenisKelamin = false;
-                            }
+                            jenisKelamin = false;
                         }
+                    }
                 }
-                //looping kelompok
-                //select peserta where jenis kelamin true terus false and kotak ke(i) != 0 sort by 
-                //looping kelamin
-                //looping by gaya renang sort ascending
-                //end looping kelamin
-                //end looping kelompok
-                query = "SELECT kode_kelompok FROM `peserta` where kode_perlombaan = '" + listPerlombaanCB.SelectedValue.ToString() + "' group by kode_kelompok";
-
                 connection.Close();
+                MessageBox.Show("Acara untuk perlombaan ini berhasil disusun!");
+                kembaliKeMainMenu();
             } catch (Exception excep) {
                 MessageBox.Show(excep.Message + "\nTidak Terkoneksi Ke Database!");
             }

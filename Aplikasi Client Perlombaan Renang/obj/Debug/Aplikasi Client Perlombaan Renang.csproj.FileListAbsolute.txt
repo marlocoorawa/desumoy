@@ -1,0 +1,14 @@
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\bin\Debug\Aplikasi Client Perlombaan Renang.exe.config
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\bin\Debug\Aplikasi Client Perlombaan Renang.exe
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\bin\Debug\Aplikasi Client Perlombaan Renang.pdb
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang.csprojResolveAssemblyReference.cache
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\MainWindow.baml
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\App.baml
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\MainWindow.g.cs
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\App.g.cs
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang_MarkupCompile.cache
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang.g.resources
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi_Client_Perlombaan_Renang.Properties.Resources.resources
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang.csproj.GenerateResource.Cache
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang.exe
+C:\Users\Marlo\Documents\Visual Studio 2013\Projects\Aplikasi Pendataan Perlombaan Renang\Aplikasi Client Perlombaan Renang\obj\Debug\Aplikasi Client Perlombaan Renang.pdb

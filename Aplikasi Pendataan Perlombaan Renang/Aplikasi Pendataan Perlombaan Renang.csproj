@@ -60,6 +60,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="KelolaHasilLomba.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,12 +75,16 @@
     <Compile Include="BuatLomba.xaml.cs">
       <DependentUpon>BuatLomba.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\HasilLomba.cs" />
     <Compile Include="Class\Kelompok.cs" />
     <Compile Include="Class\Perlombaan.cs" />
     <Compile Include="Class\Peserta.cs" />
     <Compile Include="Class\Sekolah.cs" />
     <Compile Include="KelolaPerlombaan.xaml.cs">
       <DependentUpon>KelolaPerlombaan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KelolaHasilLomba.xaml.cs">
+      <DependentUpon>KelolaHasilLomba.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
